@@ -1,12 +1,30 @@
-
-
-
-// 1 , 2 , 3  
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-const queryClient = new QueryClient()
+const queryClient = new QueryClient({
+    defaultOptions: {
+        queries: {
+            staleTime: Infinity,
+            cacheTime: Infinity
+        },
+    },
+})
+const queryKeys = {
+    id: "id",
+    name: "name",
+    person: 'person'
 
+}
+const fetching = async () => {
+    const response = await fetch('url')
+    return response
+}
 function App() {
+
+
+    const { data, status, error, failureReason, remove } = useQuery([queryKeys.id], fetching)
+
+    if (status === "isloading") return <div>Loading....</div>
+    if (status === "error") return <div>{error.toString()}</div>
     return (
         <QueryClientProvider client={queryClient}>
             ...
