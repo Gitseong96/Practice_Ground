@@ -4,16 +4,17 @@
 
 
 1. QueryClient 
-* 캐시와 상호작용을 하는 객체 
-
-* queryClient를 통해 전체적으로 옵션을 설정 할수있다 .
+    
+    * 캐시와 상호작용을 하는 객체 
+    
+    * queryClient를 통해 전체적으로 옵션을 설정 할수있다 .
 
 2. QueryClientProvider 
-*   QueryClient의 값을 연결하고 제공하는 제공자
-*    client 값으로  생성한 queryClient을 준다
+    *   QueryClient의 값을 연결하고 제공하는 제공자
+    *    client 값으로  생성한 queryClient을 준다
 
 3. ReactQueryDevtools : 현재 캐시에 있는 데이터를 알려주기 때문에 > 디버깅에 도움을 준다 
-*   option : initialIsOpen={false} 
+    *   option : initialIsOpen={false} 
 
 4. useQuery : 서버로부터 데이터를 가져올때 사용한다
 * option 
