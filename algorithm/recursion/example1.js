@@ -27,3 +27,9 @@ function recursiveRange(num) {
 
 // recursiveRange(6) // 21
 // recursiveRange(10) // 55 
+
+// todo : 피보나치 수열 구현
+function fib(n) {
+    if (n <= 2) return 1;
+    return fib(n - 1) + fib(n - 2);
+}

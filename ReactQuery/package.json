@@ -1,0 +1,18 @@
+{
+  "name": "react_query1",
+  "version": "1.0.0",
+  "description": "====================== ### 서버 상태를 관리하는 라이브러리",
+  "main": "API.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tanstack/react-query": "^4.19.1",
+    "@tanstack/react-query-devtools": "^4.19.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.26"
+  }
+}
