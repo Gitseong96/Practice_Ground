@@ -7,8 +7,6 @@ import { queryClient } from './queryClient';
 
 const App = () => {
 
-    console.log("aa")
-
     return (<QueryClientProvider client={queryClient}>
         <ReactQueryDevtools />
     </QueryClientProvider>)
