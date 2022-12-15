@@ -10,7 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "@tanstack/react-query": "^4.19.1",
-    "@tanstack/react-query-devtools": "^4.19.1"
+    "@tanstack/react-query-devtools": "^4.19.1",
+    "axios": "^1.2.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.26"
