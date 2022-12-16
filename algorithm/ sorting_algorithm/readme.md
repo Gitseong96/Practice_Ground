@@ -29,9 +29,15 @@ https://www.youtube.com/watch?v=kPRA0W1kECg
      ```
 
 * 삽입 정렬 : 각  요소를 취하여 정렬되어 있는 값 을  해당되는 위취에 배치 정렬
-    ```
 
-    ```
+|Algorthm |time (best) | time (average) |time (worst) |
+|------|----|----|----|
+|BubbleSort|O(N) | O(N^2)|O(N^2)|O(1)|
+|InsertionSort|O(N) | O(N^2)|O(N^2)|O(1)|
+|SelectionSort|O(N^2) | O(N^2)|O(N^2)|O(1)|
+
+
+
 
 * 합병 정렬
 
