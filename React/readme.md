@@ -97,8 +97,122 @@
     const callback =useCallback(callback ,depsList)
 ```
 * callback :  캐싱하려는 대상 함수
-* depsList :  함수를 캐싱할 떄 의존성 배열 객체, 이 값이 변화가 없으면 함수를 새로 만들지 않는다
+* depsList :  함수를 캐싱할 떄 의존성 배열 객체, 이 값이 변화가 없으면 함수를 새로 만들지 않는다.
 
-### 고차함수
+### 고차함수 (higher-order-function)
 * 다른 함수와 컴포넌트를 인자로 전달받거나 리턴하는 함수
-* 공통 로직을 분리하고 재사용하기 위해 사용가능
+* 공통 로직을 분리하고 재사용하기 위해 사용가능(에러처리...)
+
+
+### Context API
+* 컴포넌트 트리에서 속성을 전달하지 않고 필요한 데이터를 컴포넌트에 전달하는 방법
+* Provider를 이용해 데이터를 공유 및 접근을 가능하게 한다.
+```
+    const Context = createContext<ContextValueType|null >(null)
+    ~~
+    const values = useContext({상태값})
+    return (
+        <Contxet.Provide value={values}>
+        {props.childern}
+        </Contxet.Provide>
+    )
+```
+
+
+## 리액트 라우터
+* 리액트 기반의 강력한 라우팅 라이브러리 
+* 화면에 렌더링하는 컴포넌트와 URL 경로를 동기화하면서 새로운 화면과 흐름을 애플리케이션에 빠르게 추가할 수 있는 기능 제공
+```
+    <Router>
+        <Routes>
+            <Route path="/" element ={<One/>}></Route>
+            <Route path="/home" element ={<Two/>}></Route>
+            <Route path="*" element ={<Erorr/>} ></Route>
+        </Routes>
+    </Router>
+    -----------------------------------------------------
+    const Link = ()=>{
+        return(<>
+            <div>
+            <Link to="/" >One</Link>
+            </div>
+            <div>
+            <Link to="/home" >Two</Link>
+            </div>
+        </>
+        )
+    }
+
+```
+* Routes : Route 묶음
+* Route : 직접적으로 URL 경로와 렌더링할 컴포넌트나 요소를 지정하는 기능 제공
+    * path : 경로
+    * element : 지정된 JSX 요소에 직접 속성을 전달할 수 있다.
+    * element={<컴포넌트 props={prop} />}
+*  Link : to = {이동시킬 경로}
+### URL 파라미터
+* 동적으로 매번 다른 값이 포함되고, 컴포넌트를 실행할 떄 URL 경로의 동적인 값을 받아 이용할때 이용
+```
+    <Route path="/list/:id element={<List/ list={lists}>}>
+    <Route path="/list/:id/:name element={<List/ list={lists}>}>
+```
+* :id와 같이 URL 경로의 파라미터 이름을 지정
+* 파라미터의 값은 element로 렌더링하는 컴포넌트에서 받아낼 수 있다.
+```
+    type ListParamsType ={
+        id?:string
+    }
+    const {id} = useParams<ListParamsType>()
+```
+* 타입을 미리 정의하고 사용
+* useParams 훅을 이용 id값을 받아 낸다.
+* URL은 기본적으로 문자열이므로 문자열 타입으로 파라미터 타입 지정
+* 전달 파라미터르 여러개 사용가능
+
+### 중첩 라우트 
+* 컴포넌트에 의해 렌더링된 컴포넌트에 기존의 중첩된 Route의 컴포넌트가 나타나도록 구성하는 적용방법이다.
+* 아래 형태로 적용이 가능하다.
+```
+    <Route path="/lise" element ={<List list={list}/>}/>
+    <Route path="/lise/:id" element ={<List list={list}/>}/>
+    ============================================================
+    <Route path="/list" element={<List list={lists} />} >
+        <Route path=":id" element={ListDetail list={list}/}>
+    </Route>
+```
+
+## 리액트 라우터 hook
+> Hooks
+|Hooks| 설명|
+|-------------------|----------------------------------------------------------------------|
+|useMatch()|현재 요청 경로가 지정한 경로 패턴에 매칭되는 경우 PathMatch객체 리턴|
+|useParams()|URL 파라미터값을 포함하는 Params 객체 리턴|
+|useSearchParams()|현재 요청의 쿼리 문자열을 읽거나 수정할 수 있다.|
+|useLocation()|현재 요청된 경로 정보를 포함하는 Location 객체 리턴|
+|useNavigate()|화면 이동을 위한 Navigate함수를 리턴|
+|useOutletContext()|상위 경로에 상태를 저장하고 , Outlet 컴포넌트에 랜더링하는 자식 컴포넌트에서 상태에 접근할수 있도록 해주는 함수|
+
+### useMatch 
+* 현재 요청된 URL 경로가 인자로 전달한 경로 패턴과 매칭하는지 확인하고 PathMatch 객체 리턴
+```
+    const pathMatch = useMatch(경로)
+```
+* <Route /> 컴포넌트의 path 속성에 지정하던 경로 형태를 전달 
+* pathMatch의 객체 속성
+    * params : URL 경로 파라미터
+    * pathname : 요청된 경로
+    * pattern : 요청된 경로 패턴
+
+### useSearchParams 
+* 요청 시 전달하는 퀴리 문자열 정보를 읽어내거나 설정하는 기능
+```
+    const [searchParams,setSearchParams]=useSearchParams()
+```
+* searchParams : 퀴리 문자열을 읽을 수 있는 전용 객체
+* setSearchParams : 쿼리 문자열을 설정할 수 있는 기능을 제공하는 함수
+* 
+
+### SPA(single page application) 
+* 하나의 HTML페이지로 여러 개의 화면을 전활할 수 있는 내비게이션 기법
+* 요청된 URL 경로를 이용해 화면을 전환하기 때문에 화면의 전환을 위해 웹 서버로부터 새로운 페이지를 로딩하지 않는다.
+* 화면 전환에 필요한 모든 코드는 첫 화면을 로딩할 때 한꺼번에 서버에서 로딩한다.
