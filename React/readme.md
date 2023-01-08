@@ -207,7 +207,7 @@
 ### useSearchParams 
 * 요청 시 전달하는 퀴리 문자열 정보를 읽어내거나 설정하는 기능
 ```
-    const [searchParams,setSearchParams]=useSearchParams()
+    const [ searchParams , setSearchParams ]=useSearchParams()
 ```
 * searchParams : 퀴리 문자열을 읽을 수 있는 전용 객체
 * setSearchParams : 쿼리 문자열을 설정할 수 있는 기능을 제공하는 함수
