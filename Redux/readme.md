@@ -100,3 +100,17 @@
     type BaseDispatch =(a:Action)=>Action;
     type AsyncDispatch = (a:Action,AstncAction)=>any
 ```
+
+5. 액션 생산자
+- 액션을 만드는 함수 , 액션을 만드는 곳
+- 액션 생산자를 호출 시 액션을 만들어낼 뿐 디스패치하지 않는다 .
+```
+    type Actioncreator <A, p extends any[]=any[]>= (...args: P) => Action | AsyncAction
+```
+
+## Redux Toolkit?
+Redux 로직을 작성하기 위한 표준 방식이 되도록 만들었다
+아래 3가지를 해결하기 위해 만들었다.
+- 저장소를 설정하는 것이 너무 복잡하다.
+- 쓸만하게 되려면 너무 많은 패키지들을 더 설치해야한다,
+- 보일러플레이트 코드를 너무 많이 필요로 한다.
