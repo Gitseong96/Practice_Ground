@@ -4,9 +4,7 @@
 
 
 1. QueryClient 
-    
     * 캐시와 상호작용을 하는 객체 
-    
     * queryClient를 통해 전체적으로 옵션을 설정 할수있다 .
 
 2. QueryClientProvider 
