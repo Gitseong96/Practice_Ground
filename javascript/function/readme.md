@@ -33,7 +33,6 @@
             callback(i)
         }
     }
-
     callBacktimes(function(i){
         console.log(`${i}번쨰 함수 호출`)
     })
