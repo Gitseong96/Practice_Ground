@@ -203,8 +203,6 @@ align-items : center        교차축 방향의 중앙을 기분으로 정렬
 align-items : baseline      플렉스 아이템의 baseline을 기준으로 정렬
 
 
-
-
 ### 뷰포트 
 * 웹 페이지가 접속한 기기에서 보이는 실제 영역의 크기를 의미
 * meta 태그의 name 속성값을 viewport로 지정하고 content 속성에 width=device-width값을 추가하면 뷰포트에 맞게 출력된다.content 속성값 
