@@ -36,14 +36,12 @@ const names = getNamesExactly({ names: ["Alice", "Bob", "Eve"] });
         "strictNullChecks": true
     }
 }
-
 // tsconfig2.json
 {
     "compilerOptions": {
         "noImplicitAny": true
     }
 }
-
 // tsconfig.json
 {
     "compilerOptions": {
