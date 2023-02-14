@@ -9,8 +9,6 @@
 }
     const names = getNamesExactly({ names: ["Alice", "Bob", "Eve"]} as const);
     // 추가 적으로 타입 단언을 실행한다
-
-
 ```
 - 5.0 beta 
 ```
