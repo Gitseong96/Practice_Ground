@@ -15,7 +15,6 @@ function binarySearch(arr, num) {
     if (arr[index] === num) {
         return index
     } return -1
-
 }
 
 
